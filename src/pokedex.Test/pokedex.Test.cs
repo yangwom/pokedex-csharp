@@ -22,8 +22,8 @@ namespace pokedex.Test
             _controller = new PokemonsController(_service);
             _db = new List<PokemonCatched>()
             {
-                new PokemonCatched() { Id = 0, Name = "Bulbasaur" },
-                new PokemonCatched() { Id = 1, Name = "Pikachu" },
+                new PokemonCatched() { Id = 0, Name = "Ifarnaipe"  },
+                new PokemonCatched() { Id = 1, Name = "chalizart" }, 
             };
         }
 
