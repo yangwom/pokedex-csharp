@@ -12,6 +12,27 @@
       },
       "results": [
         {
+          "ruleId": "CS8604",
+          "level": "warning",
+          "message": "Possível argumento de referência nula para o parâmetro 'source' em 'List<PokemonCatched> Enumerable.ToList<PokemonCatched>(IEnumerable<PokemonCatched> source)'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///home/yang/projetosc%23/acc-csharp-07-exercises-pokedex/src/pokedex/Services/PokemonService.cs",
+                "region": {
+                  "startLine": 29,
+                  "startColumn": 21,
+                  "endLine": 29,
+                  "endColumn": 31
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
           "ruleId": "CS8602",
           "level": "warning",
           "message": "Desreferência de uma referência possivelmente nula.",
@@ -20,9 +41,114 @@
               "resultFile": {
                 "uri": "file:///home/yang/projetosc%23/acc-csharp-07-exercises-pokedex/src/pokedex/Services/PokemonService.cs",
                 "region": {
-                  "startLine": 66,
+                  "startLine": 35,
+                  "startColumn": 21,
+                  "endLine": 35,
+                  "endColumn": 31
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8603",
+          "level": "warning",
+          "message": "Possível retorno de referência nula.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///home/yang/projetosc%23/acc-csharp-07-exercises-pokedex/src/pokedex/Services/PokemonService.cs",
+                "region": {
+                  "startLine": 37,
+                  "startColumn": 17,
+                  "endLine": 37,
+                  "endColumn": 21
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8602",
+          "level": "warning",
+          "message": "Desreferência de uma referência possivelmente nula.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///home/yang/projetosc%23/acc-csharp-07-exercises-pokedex/src/pokedex/Services/PokemonService.cs",
+                "region": {
+                  "startLine": 41,
+                  "startColumn": 22,
+                  "endLine": 41,
+                  "endColumn": 32
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8604",
+          "level": "warning",
+          "message": "Possível argumento de referência nula para o parâmetro 'item' em 'int List<PokemonCatched>.IndexOf(PokemonCatched item)'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///home/yang/projetosc%23/acc-csharp-07-exercises-pokedex/src/pokedex/Services/PokemonService.cs",
+                "region": {
+                  "startLine": 42,
+                  "startColumn": 42,
+                  "endLine": 42,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8604",
+          "level": "warning",
+          "message": "Possível argumento de referência nula para o parâmetro 'item' em 'bool List<PokemonCatched>.Remove(PokemonCatched item)'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///home/yang/projetosc%23/acc-csharp-07-exercises-pokedex/src/pokedex/Services/PokemonService.cs",
+                "region": {
+                  "startLine": 50,
+                  "startColumn": 29,
+                  "endLine": 50,
+                  "endColumn": 33
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8602",
+          "level": "warning",
+          "message": "Desreferência de uma referência possivelmente nula.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///home/yang/projetosc%23/acc-csharp-07-exercises-pokedex/src/pokedex/Services/PokemonService.cs",
+                "region": {
+                  "startLine": 56,
                   "startColumn": 20,
-                  "endLine": 66,
+                  "endLine": 56,
                   "endColumn": 30
                 }
               }
@@ -39,6 +165,34 @@
           "shortDescription": "Desreferência de uma referência possivelmente nula.",
           "defaultLevel": "warning",
           "helpUri": "https://msdn.microsoft.com/query/roslyn.query?appId=roslyn&k=k(CS8602)",
+          "properties": {
+            "category": "Compiler",
+            "isEnabledByDefault": true,
+            "tags": [
+              "Compiler",
+              "Telemetry"
+            ]
+          }
+        },
+        "CS8603": {
+          "id": "CS8603",
+          "shortDescription": "Possível retorno de referência nula.",
+          "defaultLevel": "warning",
+          "helpUri": "https://msdn.microsoft.com/query/roslyn.query?appId=roslyn&k=k(CS8603)",
+          "properties": {
+            "category": "Compiler",
+            "isEnabledByDefault": true,
+            "tags": [
+              "Compiler",
+              "Telemetry"
+            ]
+          }
+        },
+        "CS8604": {
+          "id": "CS8604",
+          "shortDescription": "Possível argumento de referência nula.",
+          "defaultLevel": "warning",
+          "helpUri": "https://msdn.microsoft.com/query/roslyn.query?appId=roslyn&k=k(CS8604)",
           "properties": {
             "category": "Compiler",
             "isEnabledByDefault": true,

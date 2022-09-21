@@ -26,26 +26,19 @@ namespace pokedex.Services
         }
         public IEnumerable<PokemonCatched> GetAllItems()
         {
-         var data = _dbPokedex!.ToList();
+         var data = _dbPokedex.ToList();
 
          return data;
         }
         public PokemonCatched GetById(int id)
         {
-         var data = _dbPokedex!.Find(pokemon => pokemon.Id == id);
-          if(data == null) {
-
-            throw new Exception("pokemon não encontrado");
-          }
+         var data = _dbPokedex.Find(pokemon => pokemon.Id == id);
+    
          return data;
         }
         public void Put (int id, dynamic fields)
         {
-          var data = _dbPokedex!.Find(pokemon => pokemon.Id == id);
-          if(data == null) {
-
-            throw new Exception("pokemon não encontrado");
-          }
+          var data = _dbPokedex.Find(pokemon => pokemon.Id == id);
           var index = _dbPokedex.IndexOf(data);
           _dbPokedex[index] = fields;
 
@@ -53,10 +46,7 @@ namespace pokedex.Services
         public void Remove(int id)
         {
          var data = _dbPokedex!.Find(pokemon => pokemon.Id == id);
-          if(data == null) {
-
-            throw new Exception("pokemon não encontrado");
-          }
+    
           _dbPokedex.Remove(data);
 
         }

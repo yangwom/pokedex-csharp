@@ -34,30 +34,20 @@ namespace pokemon.Test
         public PokemonCatched GetById(int id)
         {
          var data = _pokemon!.Find(pokemon => pokemon.Id == id);
-          if(data == null) {
-
-            throw new Exception("pokemon não encontrado");
-          }
+         
          return data;
         }
         public void Put (int id, dynamic fields)
         {
           var data = _pokemon!.Find(pokemon => pokemon.Id == id);
-          if(data == null) {
-
-            throw new Exception("pokemon não encontrado");
-          }
+          
           var index = _pokemon.IndexOf(data);
           _pokemon[index] = fields;
 
         }
         public void Remove(int id)
         {
-         var data = _pokemon!.Find(pokemon => pokemon.Id == id);
-          if(data == null) {
-
-            throw new Exception("pokemon não encontrado");
-          }
+         var data = _pokemon.Find(pokemon => pokemon.Id == id);
           _pokemon.Remove(data);
 
         }

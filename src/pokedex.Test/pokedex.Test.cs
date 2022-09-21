@@ -37,23 +37,29 @@ namespace pokedex.Test
         [Fact]
         public void Get_WhenCalled_ReturnsAllPokemons()
         {
-            throw new NotImplementedException();
+            var result = _controller.Get().Result as OkObjectResult;
+            var IsResult = Assert.IsType<List<PokemonCatched>>(result.Value);
+            IsResult.Should().BeEquivalentTo(_db);
         }
 
         [Fact]
         public void GetById_UnknownIdPassed_ReturnsNotFoundResult()
         {
-            throw new NotImplementedException();
+            var result = _controller.GetById(7).Result;
+            result.Should().BeOfType<NotFoundResult>();
         }
         [Fact]
         public void GetById_ExistingIdPassed_ReturnsOkResult()
         {
-            throw new NotImplementedException();
+            var result = _controller.GetById(0).Result;
+            result.Should().BeOfType<OkObjectResult>();
         }
         [Fact]
         public void GetById_ExistingIdPassed_ReturnsRightItem()
         {
-            throw new NotImplementedException();
+            var result = _controller.GetById(0).Result as OkObjectResult;
+            var IsResult = Assert.IsType<PokemonCatched>(result.Value);
+            IsResult.Should().BeEquivalentTo(_db[0]);
         }
 
         // Testes POST
