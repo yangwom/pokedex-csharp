@@ -111,12 +111,14 @@ namespace pokedex.Test
         [Fact]
         public void Remove_NotExistingIdPassed_ReturnsNotFoundResponse()
         {
-            throw new NotImplementedException();
+             var result = _controller.Remove(7);
+            result.Should().BeOfType<NotFoundResult>();
         }
         [Fact]
         public void Remove_ExistingIdPassed_ReturnsOkResult()
         {
-            throw new NotImplementedException();
+             var result = _controller.Remove(7);
+            result.Should().BeOfType<NotFoundResult>();
         }
 
     }

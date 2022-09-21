@@ -53,10 +53,12 @@ namespace pokedex.Controllers
 
 
 
-        [HttpDelete]
-        public ActionResult Remove()
+        [HttpDelete("{id}")]
+        public ActionResult Remove(int id)
         {
-            throw new NotImplementedException();
+            bool result = _service.Remove(id);
+            if (!result) return NotFound();
+            return Ok();
         }
     }
 }
