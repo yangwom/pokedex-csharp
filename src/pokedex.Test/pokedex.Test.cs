@@ -74,7 +74,7 @@ namespace pokedex.Test
         [Fact]
         public void Add_ValidPokemonPassed_ReturnsCreatedResponse()
         {
-            var request = new PokemonCatched() { Id = 2, Name = "Charizard" };
+            var request = new PokemonCatched() { Id = 2, Name = "pikachu" };
             var result = _controller.Post(request) as OkObjectResult;
             var response = Assert.IsType<PokemonCatched>(result.Value);
             response.Should().BeEquivalentTo(request);
@@ -83,7 +83,7 @@ namespace pokedex.Test
         [Fact]
         public void Add_ValidPokemonPassed_ReturnedResponseHasCreatedItem()
         {
-            var request = new PokemonCatched() { Id = 2, Name = "Sepernion" };
+            var request = new PokemonCatched() { Id = 2, Name = "pikachu" };
             var response = _controller.Post(request) as OkObjectResult;
             var result = Assert.IsType<PokemonCatched>(response.Value);
             result.Should().BeEquivalentTo(request);

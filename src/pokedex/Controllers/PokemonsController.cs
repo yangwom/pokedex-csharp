@@ -37,7 +37,7 @@ namespace pokedex.Controllers
         [HttpPost]
         public ActionResult Post(PokemonCatched request)
         {
-            if (request.Id == null) return NotFound("não encontrado");
+            if (request.Id == null) return BadRequest();
             var result = _service.Add(request);
             return Ok(result);
         }

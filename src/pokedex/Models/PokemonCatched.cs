@@ -9,7 +9,7 @@ namespace pokedex.Models
     public class PokemonCatched
     {     
 
-        public int Id { get; set; }  
+        public int? Id { get; set; }  
         public string? Name { get; set; }
         
 

@@ -33,27 +33,6 @@
           }
         },
         {
-          "ruleId": "CS0472",
-          "level": "warning",
-          "message": "O resultado da expressão é sempre 'false', pois um valor do tipo 'int' nunca é igual a \"null\" do tipo 'int?'",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///home/yang/projetosc%23/acc-csharp-07-exercises-pokedex/src/pokedex/Controllers/PokemonsController.cs",
-                "region": {
-                  "startLine": 40,
-                  "startColumn": 17,
-                  "endLine": 40,
-                  "endColumn": 35
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 2
-          }
-        },
-        {
           "ruleId": "CS8602",
           "level": "warning",
           "message": "Desreferência de uma referência possivelmente nula.",
@@ -181,20 +160,6 @@
         }
       ],
       "rules": {
-        "CS0472": {
-          "id": "CS0472",
-          "shortDescription": "O resultado da expressão é sempre o mesmo, pois um valor deste tipo nunca é 'null' ",
-          "defaultLevel": "warning",
-          "helpUri": "https://msdn.microsoft.com/query/roslyn.query?appId=roslyn&k=k(CS0472)",
-          "properties": {
-            "category": "Compiler",
-            "isEnabledByDefault": true,
-            "tags": [
-              "Compiler",
-              "Telemetry"
-            ]
-          }
-        },
         "CS8602": {
           "id": "CS8602",
           "shortDescription": "Desreferência de uma referência possivelmente nula.",
