@@ -23,7 +23,7 @@ namespace pokedex.Test
             _db = new List<PokemonCatched>()
             {
                 new PokemonCatched() { Id = 0, Name = "Ifarnaipe"  },
-                new PokemonCatched() { Id = 1, Name = "chalizart" }, 
+                new PokemonCatched() { Id = 1, Name = "chalizart" },
             };
         }
 
@@ -66,19 +66,27 @@ namespace pokedex.Test
         [Fact]
         public void Add_PokemonWithoutId_ReturnsBadRequest()
         {
-            throw new NotImplementedException();
+            var request = new PokemonCatched() { Name = "pikachu" };
+            var response = _controller.Post(request);
+            response.Should().BeOfType<BadRequestResult>();
         }
 
         [Fact]
         public void Add_ValidPokemonPassed_ReturnsCreatedResponse()
         {
-            throw new NotImplementedException();
+            var request = new PokemonCatched() { Id = 2, Name = "Charizard" };
+            var result = _controller.Post(request) as OkObjectResult;
+            var response = Assert.IsType<PokemonCatched>(result.Value);
+            response.Should().BeEquivalentTo(request);
         }
 
         [Fact]
         public void Add_ValidPokemonPassed_ReturnedResponseHasCreatedItem()
         {
-            throw new NotImplementedException();
+            var request = new PokemonCatched() { Id = 2, Name = "Sepernion" };
+            var response = _controller.Post(request) as OkObjectResult;
+            var result = Assert.IsType<PokemonCatched>(response.Value);
+            result.Should().BeEquivalentTo(request);
         }
 
         // Testes PUT

@@ -35,16 +35,18 @@ namespace pokedex.Controllers
         
 
         [HttpPost]
-        public ActionResult Post()
+        public ActionResult Post(PokemonCatched request)
         {
-            throw new NotImplementedException();
+            if (request.Id == null) return NotFound("não encontrado");
+            var result = _service.Add(request);
+            return Ok(result);
         }
 
 
         [HttpPut]
         public ActionResult Put()
         {
-            throw new NotImplementedException();
+           throw new NotImplementedException();
         }
 
 
