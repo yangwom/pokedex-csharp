@@ -7,27 +7,63 @@ using System.Threading.Tasks;
 
 namespace pokedex.Services
 {
-    public class PokemonService
+    public class PokemonService : IPokemonService
     {
+       
+         private readonly List<PokemonCatched>? _dbPokedex;
+
+
+         public PokemonService(List<PokemonCatched> dbpokedex)
+         {
+            _dbPokedex = dbpokedex;
+         }
+
         public PokemonCatched Add(PokemonCatched newPokemon)
         {
-            throw new NotImplementedException();
+
+          _dbPokedex?.Add(newPokemon);
+          return newPokemon;
         }
         public IEnumerable<PokemonCatched> GetAllItems()
         {
-            throw new NotImplementedException();
+         var data = _dbPokedex!.ToList();
+
+         return data;
         }
         public PokemonCatched GetById(int id)
         {
-            throw new NotImplementedException();
+         var data = _dbPokedex!.Find(pokemon => pokemon.Id == id);
+          if(data == null) {
+
+            throw new Exception("pokemon não encontrado");
+          }
+         return data;
         }
-        public void Put (int id)
+        public void Put (int id, dynamic fields)
         {
-            throw new NotImplementedException();
+          var data = _dbPokedex!.Find(pokemon => pokemon.Id == id);
+          if(data == null) {
+
+            throw new Exception("pokemon não encontrado");
+          }
+          var index = _dbPokedex.IndexOf(data);
+          _dbPokedex[index] = fields;
+
         }
         public void Remove(int id)
         {
-            throw new NotImplementedException();
+         var data = _dbPokedex!.Find(pokemon => pokemon.Id == id);
+          if(data == null) {
+
+            throw new Exception("pokemon não encontrado");
+          }
+          _dbPokedex.Remove(data);
+
+        }
+
+           public int GetNextIdValue()
+        {
+            return _dbPokedex.Count;
         }
     }
-}
+    }

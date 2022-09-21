@@ -10,6 +10,15 @@ namespace pokedex.Services
 {
     public interface IPokemonService
     {
-       
+       public PokemonCatched Add(PokemonCatched newPokemon);
+       public IEnumerable<PokemonCatched> GetAllItems();
+
+       public PokemonCatched? GetById(int id);
+
+       public void Put (int id, dynamic fields);
+
+       public void Remove(int id);
+
+       public int GetNextIdValue();
     }
 }

@@ -11,17 +11,28 @@ namespace pokedex.Test
 {
     public class PokemonsControllerTest
     {
-       
+        PokemonsController _controller;
+
+        IPokemonService _service;
+
+        List<PokemonCatched> _db;
         public PokemonsControllerTest()
         {
-            
+            _service = new PokemonServiceFake();
+            _controller = new PokemonsController(_service);
+            _db = new List<PokemonCatched>()
+            {
+                new PokemonCatched() { Id = 0, Name = "Bulbasaur" },
+                new PokemonCatched() { Id = 1, Name = "Pikachu" },
+            };
         }
 
         // Testes GET
         [Fact]
         public void Get_WhenCalled_ReturnsOkResult()
         {
-            throw new NotImplementedException();
+            var result = _controller.Get().Result;
+            result.Should().BeOfType<OkObjectResult>();
         }
         [Fact]
         public void Get_WhenCalled_ReturnsAllPokemons()

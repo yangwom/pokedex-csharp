@@ -9,31 +9,38 @@ namespace pokedex.Controllers
     [Route("api/[controller]")]
     [ApiController]
     public class PokemonsController : ControllerBase
-    {        
-        public PokemonsController()
+    {
+        private readonly IPokemonService _service;
+
+        public PokemonsController(IPokemonService service)
         {
-     
+            _service = service;
         }
-        
+
         [HttpGet]
         public ActionResult<IEnumerable<PokemonCatched>> Get()
         {
-            throw new NotImplementedException();
+            var result = _service.GetAllItems();
+            return Ok(result);
         }
-        
-        [HttpGet]
-        public ActionResult<PokemonCatched> GetById()
+
+        [HttpGet("{id}")]
+        public ActionResult<PokemonCatched> GetById(int id)
         {
-            throw new NotImplementedException();
-        }
+           
+                var result = _service.GetById(id);
+                if (result == null) return NotFound();
+                return Ok(result);
+         }
         
+
         [HttpPost]
         public ActionResult Post()
         {
             throw new NotImplementedException();
         }
 
-        
+
         [HttpPut]
         public ActionResult Put()
         {
@@ -41,7 +48,7 @@ namespace pokedex.Controllers
         }
 
 
-        
+
         [HttpDelete]
         public ActionResult Remove()
         {

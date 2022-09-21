@@ -5,13 +5,50 @@
     {
       "tool": {
         "name": "Compilador do Microsoft (R) Visual C#",
-        "version": "4.2.0.0",
-        "fileVersion": "4.2.0-4.22281.5 (8d3180e5)",
-        "semanticVersion": "4.2.0",
+        "version": "4.3.0.0",
+        "fileVersion": "4.3.0-3.22365.10 (dd078d4e)",
+        "semanticVersion": "4.3.0",
         "language": "pt-BR"
       },
       "results": [
-      ]
+        {
+          "ruleId": "CS8602",
+          "level": "warning",
+          "message": "Desreferência de uma referência possivelmente nula.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///home/yang/projetosc%23/acc-csharp-07-exercises-pokedex/src/pokedex/Services/PokemonService.cs",
+                "region": {
+                  "startLine": 66,
+                  "startColumn": 20,
+                  "endLine": 66,
+                  "endColumn": 30
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        }
+      ],
+      "rules": {
+        "CS8602": {
+          "id": "CS8602",
+          "shortDescription": "Desreferência de uma referência possivelmente nula.",
+          "defaultLevel": "warning",
+          "helpUri": "https://msdn.microsoft.com/query/roslyn.query?appId=roslyn&k=k(CS8602)",
+          "properties": {
+            "category": "Compiler",
+            "isEnabledByDefault": true,
+            "tags": [
+              "Compiler",
+              "Telemetry"
+            ]
+          }
+        }
+      }
     }
   ]
 }

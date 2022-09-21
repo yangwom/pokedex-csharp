@@ -14,33 +14,57 @@ namespace pokemon.Test
         {
             _pokemon = new List<PokemonCatched>()
             {                
-                             
+                new PokemonCatched() { Id = 0, Name = "Ifarnaipe"  },
+                new PokemonCatched() { Id = 1, Name = "chalizart" },         
             };
         }
 
-        public PokemonCatched Add()
+          public PokemonCatched Add(PokemonCatched newPokemon)
         {
-            throw new NotImplementedException();
+
+          _pokemon?.Add(newPokemon);
+          return newPokemon;
+        }
+        public IEnumerable<PokemonCatched> GetAllItems()
+        {
+         var data = _pokemon!.ToList();
+
+         return data;
+        }
+        public PokemonCatched GetById(int id)
+        {
+         var data = _pokemon!.Find(pokemon => pokemon.Id == id);
+          if(data == null) {
+
+            throw new Exception("pokemon não encontrado");
+          }
+         return data;
+        }
+        public void Put (int id, dynamic fields)
+        {
+          var data = _pokemon!.Find(pokemon => pokemon.Id == id);
+          if(data == null) {
+
+            throw new Exception("pokemon não encontrado");
+          }
+          var index = _pokemon.IndexOf(data);
+          _pokemon[index] = fields;
+
+        }
+        public void Remove(int id)
+        {
+         var data = _pokemon!.Find(pokemon => pokemon.Id == id);
+          if(data == null) {
+
+            throw new Exception("pokemon não encontrado");
+          }
+          _pokemon.Remove(data);
+
         }
 
-        public IEnumerable<PokemonCatched> GetAllPokemons()
+           public int GetNextIdValue()
         {
-            throw new NotImplementedException();
-        }
-
-        public PokemonCatched GetById()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Put()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Remove()
-        {
-            throw new NotImplementedException();
+            return _pokemon.Count;
         }
     }
 }
