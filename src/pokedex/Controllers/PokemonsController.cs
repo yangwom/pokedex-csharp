@@ -43,10 +43,12 @@ namespace pokedex.Controllers
         }
 
 
-        [HttpPut]
-        public ActionResult Put()
+        [HttpPut("{id}")]
+        public ActionResult Put(int id, PokemonCatched newPokemon)
         {
-           throw new NotImplementedException();
+            var result = _service.Put(id, newPokemon);
+            if (!result) return NotFound();
+            return Ok();
         }
 
 

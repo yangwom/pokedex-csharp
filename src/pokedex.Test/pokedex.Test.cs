@@ -93,13 +93,17 @@ namespace pokedex.Test
         [Fact]
         public void PutById_ExistingIdPassed_ReturnsOkResult()
         {
-            throw new NotImplementedException();
+            var request = new PokemonCatched() { Id = 1, Name = "Gyarados" };
+            var result = _controller.Put(1, request);
+            result.Should().BeOfType<OkResult>();
         }
 
         [Fact]
         public void PutById_IdNotFound_ReturnsNotFoundResult()
         {
-            throw new NotImplementedException();
+             var request = new PokemonCatched() { Id = 7, Name = "Onyx" };
+            var result = _controller.Put(7, request);
+            result.Should().BeOfType<NotFoundResult>();
         }
 
 

@@ -15,9 +15,9 @@ namespace pokedex.Services
 
        public PokemonCatched? GetById(int id);
 
-       public void Put (int id, dynamic fields);
+       public bool Put (int id, PokemonCatched newPokemon);
 
-       public void Remove(int id);
+       public bool Remove(int id);
 
        public int GetNextIdValue();
     }

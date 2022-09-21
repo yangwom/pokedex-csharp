@@ -13,46 +13,48 @@ namespace pokemon.Test
         public PokemonServiceFake()
         {
             _pokemon = new List<PokemonCatched>()
-            {                
+            {
                 new PokemonCatched() { Id = 0, Name = "Ifarnaipe"  },
-                new PokemonCatched() { Id = 1, Name = "chalizart" },         
+                new PokemonCatched() { Id = 1, Name = "chalizart" },
             };
         }
 
-          public PokemonCatched Add(PokemonCatched newPokemon)
+        public PokemonCatched Add(PokemonCatched newPokemon)
         {
 
-          _pokemon?.Add(newPokemon);
-          return newPokemon;
+            _pokemon?.Add(newPokemon);
+            return newPokemon;
         }
         public IEnumerable<PokemonCatched> GetAllItems()
         {
-         var data = _pokemon!.ToList();
+            var data = _pokemon!.ToList();
 
-         return data;
+            return data;
         }
         public PokemonCatched GetById(int id)
         {
-         var data = _pokemon!.Find(pokemon => pokemon.Id == id);
-         
-         return data;
+            var data = _pokemon!.Find(pokemon => pokemon.Id == id);
+
+            return data;
         }
-        public void Put (int id, dynamic fields)
+        public bool Put(int id, PokemonCatched newPokemon)
         {
-          var data = _pokemon!.Find(pokemon => pokemon.Id == id);
-          
-          var index = _pokemon.IndexOf(data);
-          _pokemon[index] = fields;
+            var pokemon = _pokemon.Find(p => p.Id == id);
+            if (pokemon == null) return false;
+            var index = _pokemon.IndexOf(pokemon);
+            _pokemon[index] = newPokemon;
+            return true;
 
         }
-        public void Remove(int id)
+        public bool Remove(int id)
         {
-         var data = _pokemon.Find(pokemon => pokemon.Id == id);
-          _pokemon.Remove(data);
-
+            var pokemon = _pokemon.Find(p => p.Id == id);
+            if (pokemon == null) return false;
+            _pokemon.Remove(pokemon);
+            return true;
         }
 
-           public int GetNextIdValue()
+        public int GetNextIdValue()
         {
             return _pokemon.Count;
         }

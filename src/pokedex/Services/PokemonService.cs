@@ -9,51 +9,52 @@ namespace pokedex.Services
 {
     public class PokemonService : IPokemonService
     {
-       
-         private readonly List<PokemonCatched>? _dbPokedex;
+
+        private readonly List<PokemonCatched>? _dbPokedex;
 
 
-         public PokemonService(List<PokemonCatched> dbpokedex)
-         {
+        public PokemonService(List<PokemonCatched> dbpokedex)
+        {
             _dbPokedex = dbpokedex;
-         }
+        }
 
         public PokemonCatched Add(PokemonCatched newPokemon)
         {
 
-          _dbPokedex?.Add(newPokemon);
-          return newPokemon;
+            _dbPokedex?.Add(newPokemon);
+            return newPokemon;
         }
         public IEnumerable<PokemonCatched> GetAllItems()
         {
-         var data = _dbPokedex.ToList();
+            var data = _dbPokedex.ToList();
 
-         return data;
+            return data;
         }
         public PokemonCatched GetById(int id)
         {
-         var data = _dbPokedex.Find(pokemon => pokemon.Id == id);
-    
-         return data;
+            var data = _dbPokedex.Find(pokemon => pokemon.Id == id);
+
+            return data;
         }
-        public void Put (int id, dynamic fields)
+        public bool Put(int id, PokemonCatched newPokemon)
         {
-          var data = _dbPokedex.Find(pokemon => pokemon.Id == id);
-          var index = _dbPokedex.IndexOf(data);
-          _dbPokedex[index] = fields;
+            var pokemon = _dbPokedex.Find(p => p.Id == id);
+            if (pokemon == null) return false;
+            var index = _dbPokedex.IndexOf(pokemon);
+            _dbPokedex[index] = newPokemon;
+            return true;
 
         }
-        public void Remove(int id)
+        public bool Remove(int id)
         {
-         var data = _dbPokedex!.Find(pokemon => pokemon.Id == id);
-    
-          _dbPokedex.Remove(data);
-
+            var pokemon = _dbPokedex.Find(p => p.Id == id);
+            if (pokemon == null) return false;
+            _dbPokedex.Remove(pokemon);
+            return true;
         }
-
-           public int GetNextIdValue()
+        public int GetNextIdValue()
         {
             return _dbPokedex.Count;
         }
     }
-    }
+}
